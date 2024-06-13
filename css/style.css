@@ -1,0 +1,785 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: Rubik;
+    font-size: 12px;
+    /*анализирем основной текст сайта */
+    color: #616161;
+    /*анализирем основной текст сайта */
+
+}
+
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+
+
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+
+[class*="__container"] {
+    /*1055px - гирина ограничивающего контейнера */
+    /* но так как педдинги или отступы безопасности = 30 то надо к ограничиваюшему контейнеру добавить 30px */
+    /* поэтому макс ширина 1085px */
+    max-width: 1085px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (max-width: 1087px) {
+    [class*="__container"] {
+        max-width: 970px;
+    }
+
+}
+
+
+
+@media (max-width: 991.98px) {
+    [class*="__container"] {
+        max-width: 750px;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+    [class*="__container"] {
+        /* max-width: 750px; */
+        max-width: none;
+    }
+
+    .menu__body {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+    }
+
+    .header__logo {
+        flex: 0 0 40px;
+        position: relative;
+        z-index: 5;
+        overflow: hidden;
+    }
+
+    .menu__list {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu__link {
+
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .menu__item {
+        margin: 0px 0px 25px 0px;
+    }
+
+    .menu__item:hover {
+        text-decoration: underline;
+    }
+
+    .menu__item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 479.98px) {
+
+    .header__logo {
+        flex: 0 0 40px;
+        overflow: hidden;
+    }
+}
+
+/*  Призамере высоты хедера смотрим на отступ сверху по самому большому элементу*/
+
+
+
+.header {
+
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+.header__container {
+    display: flex;
+    min-height: 114px;
+    align-items: center;
+}
+
+
+.header__logo {}
+
+.header__menu {
+    flex: 1 1 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 0 40px 0 0; */
+}
+
+.menu__list {
+    display: flex;
+    /*  gap: 40px; так как гэп не везде поддерживается его лучше не юзать */
+}
+
+.menu__item {
+    margin: 0 40px 0 0;
+}
+
+@media (max-width: 991.98px) {
+    .menu__item {
+        margin: 0 30px 0 0;
+    }
+
+    .header__container {
+        min-height: 80px;
+    }
+
+}
+
+
+
+.menu__link {
+    font-family: Raleway;
+    text-transform: uppercase;
+
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 12px;
+    /* Но лучше писаьб 1.2  без px чтобы в случае если поменять размер шрифта то он автоматичекси подстроился*/
+
+    color: #000;
+    letter-spacing: 1px;
+
+
+}
+
+.header__button {
+    flex: 0 0 252px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    font-family: Raleway;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 12px;
+    /* по высоте текста */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fcfdfe;
+    padding: 14px 30px;
+
+    border-radius: 5px;
+    background-color: #ec5863;
+    display: inline-block;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.button:hover {
+    background-color: #ad4047;
+}
+
+.button__blue {
+    background: #4285f4;
+
+}
+
+.button__blue:hover {
+    background: #206ae0;
+
+}
+
+
+@media (max-width: 991.98px) {
+    .header__button {
+        flex: 0 0 170px;
+    }
+
+}
+
+/*================================================================================*/
+
+
+.get-started {
+    background-color: #fafbfd;
+
+}
+
+.get-started__container {
+    padding: 150px 15px 50px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+}
+
+.get-started__container::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    z-index: 0;
+    height: 100%;
+    transform: translateX(100%);
+    right: 267px;
+    top: 0;
+    background-color: #ec5863;
+
+    border-radius: 30px 0px 0px 30px;
+}
+
+.get-started__content {
+    flex: 0 1 48%;
+    padding: 0px 20px 0px 20px;
+
+
+
+}
+
+
+.get-started__image {
+    position: relative;
+    flex: 0 1 52%;
+    z-index: 2;
+    /* 557px/1057 (ширина огран контейнера) = 0.52 = 52% по макету  */
+
+}
+
+.get-started__image img {
+    max-width: 100%;
+}
+
+.get-started__video {
+    padding: 60px 0px 0px 20px;
+    flex: 1 1 100%;
+}
+
+.get-started__block-text {
+    max-width: 410px;
+}
+
+
+
+.block-text {}
+
+.block-text_center {
+    text-align: center;
+}
+
+.block-text__text_mw {
+    max-width: 510px;
+    margin: 0 auto;
+}
+
+.block-text__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 126%;
+    color: #000;
+
+}
+
+.block-text__title:not(:last-child) {
+    /* добавляет отступ если оюъект не последний */
+    margin: 0px 0px 12px 0px;
+}
+
+.block-text__title span {
+    color: #ec5863;
+}
+
+.block-text__title__blue span {
+    color: #4285f4
+}
+
+.block-text__text {
+    line-height: 138.5%;
+}
+
+.block-text__text:not(:last-child) {
+    /* добавляет отступ если оюъект не последний */
+    margin: 0px 0px 24px 0px;
+    /* то есть если кнопку под текстом уберут то отступ автоматом пропадет */
+}
+
+
+@media (max-width: 767.98px) {
+    .block-text__title {
+        font-size: 34px;
+    }
+}
+
+.video-get-started {
+    display: inline-flex;
+
+}
+
+.video-get-started__icon {
+    flex: 0 0 44px;
+    align-items: center;
+}
+
+.video-get-started__body {
+    padding: 0px 0px 0px 12px;
+
+}
+
+.video-get-started__title {
+    color: #b0b0b0;
+    line-height: 126%;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+
+}
+
+.video-get-started__text {
+    font-size: 9px;
+    line-height: 126%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.video-get-started__title:not(:last-child) {
+    margin: 0px 0px px 0px;
+}
+
+@media (max-width: 991.98px) {
+    .get-started__container::before {
+        right: 185px;
+        border-radius: 20px 0 0 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .get-started__container::before {
+        display: none;
+    }
+
+    .get-started__block-text {
+        max-width: none;
+    }
+
+    .get-started__content {
+        flex: 1 1 100%;
+        padding: 0;
+
+    }
+
+    .get-started__container {
+        padding: 100px 15px 30px 15px;
+    }
+
+    .get-started__image {
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .get-started__video {
+        padding: 0;
+    }
+}
+
+/*=====================================================*/
+
+
+.stay-safe {
+    padding: 80px 0;
+}
+
+.stay-safe__container {
+    display: flex;
+    align-items: center;
+
+}
+
+.stay-safe__media {
+    flex: 0 1 50%;
+    padding: 0 0 0 47px;
+}
+
+
+.media-stay-safe {
+    width: 373px;
+    text-align: center;
+    padding: 56px 0px 27px 0px;
+    position: relative;
+}
+
+
+.stay-safe__content {
+    flex: 0 1 50%;
+}
+
+.stay-safe__block-text {}
+
+.media-stay-safe__image {
+    display: inline-block;
+    box-shadow: 2px 4px 32px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    position: relative;
+    width: 61%;
+    /* 229/372 = 0.61% */
+}
+
+.media-stay-safe__image img {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.media-stay-safe__image::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 12px;
+    width: 206px;
+    height: 27px;
+
+    background: rgba(240, 240, 240, 0.49);
+    border-radius: 16px;
+}
+
+.media-stay-safe__item {
+    position: absolute;
+    background-color: #ec5863;
+    border-radius: 30px;
+    width: 77px;
+    height: 77px;
+    z-index: -1;
+}
+
+.media-stay-safe__item_1 {
+    top: 0;
+    left: 0;
+    width: 147px;
+    height: 147px;
+}
+
+.media-stay-safe__item_2 {
+    bottom: 0;
+    left: 33px;
+
+}
+
+.media-stay-safe__item_3 {
+    right: 34px;
+    bottom: 107px;
+}
+
+@media (min-width: 991.98px) {
+    .stay-safe__media {
+        padding: 0px 0px 0px 47px;
+
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .stay-safe {
+        padding: 40px 0;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .stay-safe__container {
+        flex-direction: column-reverse;
+    }
+
+    .stay-safe__content {
+        margin: 0px 0px 30px 0px;
+    }
+
+}
+
+
+@media (max-width: 479.98px) {
+    .media-stay-safe {
+        width: 290px;
+    }
+
+}
+
+/*------------------------------------------------------*/
+
+.experts {
+    background-color: #fafbfd;
+    padding: 103px 0px 116px 0px;
+}
+
+.experts__container {}
+
+.experts__statistics {}
+
+.statistics-experts {
+    max-width: 655px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.statistics-experts__body {
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 2px 24px rgba(88, 126, 236, 0.15);
+    border-radius: 16px;
+    position: relative;
+    margin: 0px 0px 80px 0px;
+    z-index: 2;
+}
+
+.body-statistics-experts {
+    padding: 25px 80px;
+    display: flex;
+    align-items: center;
+}
+
+
+.body-statistics-experts__item {
+    flex: 1 1 25%;
+    text-align: center;
+}
+
+.body-statistics-experts__item:last-child {
+    flex: 0 1 50%
+}
+
+.body-statistics-experts__value {
+    letter-spacing: 1px;
+    font-weight: 700;
+    /* line-height: 43px;  НО МЫ ПЕРЕВОДИМ В % 43/36= 1.19 ГДЕ 43 - LINE-HEIGHT В PX А 36 - FONT-SIZE*/
+    line-height: 1.2;
+    font-size: 36px;
+    color: #ec5863;
+    margin-bottom: 5px;
+}
+
+.body-statistics-experts__text {
+
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+    text-transform: uppercase;
+
+}
+
+
+.statistics-experts__decor {
+    position: absolute;
+    background-color: #ec5863;
+
+}
+
+.statistics-experts__decor_1 {
+    width: 65px;
+    height: 65px;
+    transform: rotate(-30deg);
+    bottom: 0;
+    border-radius: 16px;
+    bottom: -31px;
+    left: -31px;
+}
+
+.statistics-experts__decor_2 {
+    width: 97px;
+    height: 97px;
+    right: 50%;
+    transform: rotate(30deg);
+    top: -40px;
+    border-radius: 30px;
+}
+
+.statistics-experts__decor_3 {
+    width: 128px;
+    border-radius: 30px;
+    height: 128px;
+    right: -55px;
+    top: 0px;
+    transform: rotate(-30deg);
+}
+
+
+.experts__block-text {
+    max-width: 400px;
+}
+
+.experts__video {
+    padding: 0px 0px 30% 0px;
+    position: relative;
+    width: 400px;
+    height: 400px;
+
+
+}
+
+.experts__video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+
+.experts__body {
+    display: flex;
+    align-items: center;
+}
+
+.experts__content {
+    flex: 0 1 50%;
+    padding: 0 20px 0 0;
+}
+
+@media (max-width: 767.98px) {
+    .experts__body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .experts__video {
+        padding: 0px 0px 58% 0px;
+    }
+
+    .experts__content {
+        padding: 0;
+        margin: 0px 0px 30px 0px;
+    }
+}
+
+
+@media (max-width: 479.98px) {
+    .body-statistics-experts {
+        flex-direction: column;
+    }
+
+    .body-statistics-experts__item:not(:last-child) {
+        margin: 0 0 15px 0
+    }
+}
+
+/*-----------------------------------------------------------*/
+
+.healthcare {
+    padding: 80px 0px 30px 0px;
+}
+
+.healthcare__container {}
+
+.healthcare__block-text {
+
+    margin: 0px 0px 45px 0px;
+}
+
+.block-text {}
+
+.block-text_center {}
+
+.block-text__title {}
+
+.block-text__text {}
+
+.block-text__text_mw {}
+
+
+.healthcare__items {
+    display: flex;
+    max-width: 980px;
+    margin: 0 auto;
+    gap: 72px
+}
+
+.healthcare__item {
+    flex: 0 1 33.3%
+}
+
+.item-healthcare {
+
+    background-color: #fff;
+    box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 17px;
+    text-align: center;
+
+}
+
+.item-healthcare__icon {
+    margin: 0px 0px 58px 0px;
+}
+
+.item-healthcare__title {
+    font-weight: 700;
+    color: #000;
+    font-size: 16px;
+    line-height: 138.5%;
+    margin: 0px 0px 4px 0px;
+}
+
+.item-healthcare__text {
+    line-height: 138.5%
+}
+
+
+.item-healthcare {
+    position: relative;
+}
+.item-healthcare_1::before,
+.item-healthcare_1::after {
+    position: absolute;
+    content: "";
+    background-color: #ec5863;
+    border-radius: 16px;
+}
+
+.item-healthcare_1::before {
+    width: 65px;
+    height: 65px;
+    bottom: 0;
+    left: 0;
+    transform: rotate(-30deg);
+
+}

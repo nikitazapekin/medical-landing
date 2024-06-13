@@ -1,0 +1,1 @@
+https://www.figma.com/design/6iiUFDjAJosokGnZW3K9Dw/Gocorna-Website?node-id=1-7&t=YlbSYytbK4RWMvGN-1
